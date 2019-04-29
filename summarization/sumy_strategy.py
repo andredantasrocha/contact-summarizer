@@ -82,4 +82,4 @@ class SumyStrategy:
         summary = ''
         for s in final_sentences:
             summary = '{} {}'.format(summary, str(s))
-        return summary
+        return summary.strip()

@@ -43,4 +43,4 @@ class SpacyStrategy:
         summary_sentences = nlargest(7, sentence_scores, key=sentence_scores.get)
         final_sentences = [w.text for w in summary_sentences]
         summary = ' '.join(final_sentences)
-        return {'Spacy': summary}
+        return {'Spacy': summary.strip()}

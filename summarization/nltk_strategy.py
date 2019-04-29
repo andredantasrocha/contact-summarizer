@@ -107,4 +107,4 @@ class NltkStrategy:
                 summary += " " + sentence
                 sentence_count += 1
 
-        return summary
+        return summary.strip()

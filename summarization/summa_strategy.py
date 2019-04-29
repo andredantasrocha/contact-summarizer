@@ -6,4 +6,4 @@ class SummaStrategy:
         self.__ratio = ratio
 
     def summarize_from_text(self, text):
-        return {'Summa': summarize(text, self.__ratio)}
+        return {'Summa': summarize(text, self.__ratio).strip()}
