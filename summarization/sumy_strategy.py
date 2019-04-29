@@ -40,7 +40,9 @@ class SumyStrategy:
 
     def __edmundson(self, parser):
         summarizer = EdmundsonSummarizer(Stemmer(self.__language))
-        summarizer.bonus_words = ("deep", "learning", "neural")
+        # words of high importance
+        summarizer.bonus_words = ("info", "information", "due", "overdue", "withdraw", "balance", "fees")
+        # words of low importance or even negative importance?
         summarizer.stigma_words = ("another", "and", "some", "next",)
         summarizer.null_words = ("another", "and", "some", "next",)
         final_sentences = summarizer(parser.document, self.__sentences_count)
