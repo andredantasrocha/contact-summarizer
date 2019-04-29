@@ -34,7 +34,7 @@ class SumyStrategy:
 
     def __luhn(self, parser):
         summarizer = LuhnSummarizer(Stemmer(self.__language))
-        # summarizer.stop_words = ("I", "am", "the", "you", "are", "me", "is", "than", "that", "this",)
+        summarizer.stop_words = get_stop_words(self.__language)
         final_sentences = summarizer(parser.document, self.__sentences_count)
         return self.__join_sentences(final_sentences)
 
@@ -56,21 +56,25 @@ class SumyStrategy:
 
     def __lex_rank(self, parser):
         summarizer = LexRankSummarizer()
+        summarizer.stop_words = get_stop_words(self.__language)
         final_sentences = summarizer(parser.document, self.__sentences_count)
         return self.__join_sentences(final_sentences)
 
     def __text_rank(self, parser):
         summarizer = TextRankSummarizer(Stemmer(self.__language))
+        summarizer.stop_words = get_stop_words(self.__language)
         final_sentences = summarizer(parser.document, self.__sentences_count)
         return self.__join_sentences(final_sentences)
 
     def __sum_basic(self, parser):
         summarizer = SumBasicSummarizer(Stemmer(self.__language))
+        summarizer.stop_words = get_stop_words(self.__language)
         final_sentences = summarizer(parser.document, self.__sentences_count)
         return self.__join_sentences(final_sentences)
 
     def __kl_sum(self, parser):
         summarizer = KLSummarizer(Stemmer(self.__language))
+        summarizer.stop_words = get_stop_words(self.__language)
         final_sentences = summarizer(parser.document, self.__sentences_count)
         return self.__join_sentences(final_sentences)
 
