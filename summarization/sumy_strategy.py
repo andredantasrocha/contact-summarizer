@@ -17,7 +17,7 @@ from sumy.summarizers.kl import KLSummarizer
 
 class SumyStrategy:
     def __init__(self):
-        self.__language = "english"
+        self.__language = 'english'
         self.__sentences_count = 5
 
     def summarize_from_text(self, text):
@@ -41,10 +41,10 @@ class SumyStrategy:
     def __edmundson(self, parser):
         summarizer = EdmundsonSummarizer(Stemmer(self.__language))
         # words of high importance
-        summarizer.bonus_words = ("info", "information", "due", "overdue", "withdraw", "balance", "fees")
+        summarizer.bonus_words = ('info', 'information', 'due', 'overdue', 'withdraw', 'balance', 'fees')
         # words of low importance or even negative importance?
-        summarizer.stigma_words = ("another", "and", "some", "next",)
-        summarizer.null_words = ("another", "and", "some", "next",)
+        summarizer.stigma_words = 'zdfgthdvndadv'
+        summarizer.null_words = 'zdfgthdvndadv'
         final_sentences = summarizer(parser.document, self.__sentences_count)
         return self.__join_sentences(final_sentences)
 
