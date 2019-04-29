@@ -1,5 +1,3 @@
-import re
-
 from summarization.gensim_strategy import GensimStrategy
 from summarization.nltk_strategy import NltkStrategy
 from summarization.spacy_strategy import SpacyStrategy
@@ -12,10 +10,7 @@ strategies = [GensimStrategy(), SpacyStrategy(), SummaStrategy(), NltkStrategy()
 class Summarizer:
     def execute(self, text):
         result = {}
-        data = re.sub(r'[^a-zA-Z\n\r]', ' ', text).strip()
-
         for s in strategies:
-            summary = s.summarize_from_text(data)
+            summary = s.summarize_from_text(text)
             result.update(summary)
-
         return result
