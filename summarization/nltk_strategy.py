@@ -25,7 +25,7 @@ class NltkStrategy:
         # 5 Important Algorithm: Generate the summary
         summary = self.__generate_summary(sentences, sentence_scores, 1.3 * threshold)
 
-        return {'NLTK': summary}
+        return summary
 
     def __create_frequency_table(self, text) -> dict:
         """

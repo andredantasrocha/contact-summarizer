@@ -6,4 +6,4 @@ class GensimStrategy:
         self.__ratio = ratio
 
     def summarize_from_text(self, text):
-        return {'Gensim': (summarize(text, self.__ratio).strip())}
+        return summarize(text, self.__ratio).strip()
